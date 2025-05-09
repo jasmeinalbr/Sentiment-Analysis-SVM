@@ -50,18 +50,23 @@ Sentimen: Negatif
 ## 📈 Evaluasi Model
 Setelah pelatihan, performa model dievaluasi. Contoh hasil evaluasi:
 ```bash
-Akurasi: 0.85
-
-Confusion Matrix:
-[[45  5]
- [ 7 43]]
+Akurasi: 0.99
 
 Classification Report:
               precision    recall  f1-score   support
-    Negatif       0.87      0.90      0.88        50
-    Positif       0.90      0.86      0.88        50
-     Akurasi                           0.88       100
+           0       1.00      0.99      0.99       586
+           1       0.99      1.00      1.00       801
+
+     Accuracy                           0.99      1387
+    Macro avg       1.00      0.99      0.99      1387
+ Weighted avg       0.99      0.99      0.99      1387
 ```
+Model terbaik diperoleh melalui GridSearchCV dengan parameter:
+- **Kernel**: RBF  
+- **C**: 1000  
+- **Gamma**: 0.001  
+
+Model ini memberikan performa tinggi dengan akurasi sebesar 99%, serta nilai precision, recall, dan f1-score yang sangat baik pada kedua kelas (positif dan negatif).
 
 ## 🔄 Perubahan yang Dilakukan pada Kode Asli
 - Mengganti fungsi-fungsi yang sudah deprecated.
@@ -71,8 +76,6 @@ Classification Report:
 ## 📂 Struktur Folder
 ```bash
 Sentiment-Analysis-SVM/
-├── .ipynb_checkpoint/
-│   └── SVM-checkpoint.ipynb
 ├── SVM.ipynb
 ├── Training.txt
 ├── requirements.txt
@@ -92,7 +95,7 @@ pip install -r requirements.txt
 
 3. Jalankan program utama:
 ```bash
-python SVM.ipynb
+jupyter notebook SVM.ipynb
 ```
 
 ## 📌 Kesimpulan
